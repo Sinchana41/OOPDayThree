@@ -1,6 +1,6 @@
 package com.oops.daythree.banksystem;
 
-public class BankAccount {
+public class BankAccount implements BankSimulation {
 
 	private static int nextAccountNumber=1000;
 
@@ -31,6 +31,7 @@ public class BankAccount {
 		return balance;
 	}	
 
+	@Override
 	public boolean deposit(double amount) {
 		if(amount>0) {
 			balance=balance+amount;
@@ -38,7 +39,7 @@ public class BankAccount {
 		}
 		return false;
 	}
-
+    @Override
 	public boolean withDraw(double amount) {
 		if(amount>0 && balance>=amount) {
 			balance=balance-amount;
